@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Quiz</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+  <script src="quiz.js" defer></script>
+
+  <style>
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(174,74,232,1) 5%, rgba(110,255,133,1) 46%, rgba(32,188,242,1) 79%);
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./images/stars.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1; /* Adjust the transparency here (0.1 is very light, 0.5 is semi-visible) */
+    z-index: 0; /* Ensure it appears behind the content */
+  }
+
+  .container {
+    position: relative;
+    z-index: 1; /* Bring content above the background image */
+    background: rgb(74,232,225);
+    background: linear-gradient(90deg, rgba(74,232,225,1) 23%, rgba(251,52,52,1) 47%, rgba(168,168,168,1) 85%);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 600px;
+  }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    #wallet-address {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      background-color: #ff5f7e;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1.1em;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff2d55;
+    }
+    #quiz-container {
+      display: none;
+      margin-top: 20px;
+    }
+    .question {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    .options {
+      margin-bottom: 20px;
+    }
+    .options button {
+      width: 100%;
+      margin: 5px 0;
+    }
+    #next-question, #previous-question, #end-quiz {
+      display: inline-block;
+      width: 45%;
+    }
+    #next-question, #previous-question {
+      margin: 10px 5%;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Space Quiz</h1>
+    <div id="wallet-address">Wallet: Not connected</div>
+    <button id="connect-wallet">Connect Wallet</button>
+    <button id="claim-tokens">Claim Tokens</button>
+    <button id="start-quiz">Start Quiz</button>
+    
+    <div id="quiz-container">
+      <div id="question" class="question"></div>
+      <div id="options" class="options"></div>
+      <button id="next-question" style="display: none;">Next</button>
+      <button id="previous-question" style="display: none;">Previous</button>
+      <button id="end-quiz">End Quiz</button>
+    </div>
+    
+    <div id="result"></div>
+  </div>
+</body>
+</html>
