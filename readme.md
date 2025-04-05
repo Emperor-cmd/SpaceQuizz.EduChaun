@@ -15,7 +15,7 @@ StartQuest is a decentralized space-themed quiz game that integrates blockchain 
 - *Network*: EDU chain
 
 ## Deployment
-- *Contract Address*: [View on Explorer](https://edu-chain-testnet.blockscout.com/address/0xE0b29D7e3Cf236D71Dcbe122795DA7dDBc10a7C5)
+- *Contract Address*: [View on Explorer](https://edu-chain-testnet.blockscout.com/address/0x5Eae8B7B4dd3A56Cf9FAAC5f9CdDd83cD66E8Fd3)
 - *Coin Used*: TMT (TheMythicToken)
 
 ## How to Use
